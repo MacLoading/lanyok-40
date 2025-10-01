@@ -15,7 +15,7 @@
 <body>
   <div class="card">
     <h2>Rejtvény</h2>
-    <p>„A tudás szerint a legkisebb kötelék, a Don és Dom is folyton erről beszél.”</p>
+    <p>„A tudomány szerint a legkisebb kötelék, a Don és Dom is folyton erről beszél.”</p>
     <input id="answer" placeholder="Írd be a megfejtést..." />
     <button onclick="check()">Ellenőrzés</button>
     <p id="msg"></p>
@@ -45,4 +45,5 @@ function check(){
 </script>
 </body>
 </html>
+
 
