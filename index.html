@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<title>Rejtvényes videó</title>
+<style>
+ body { font-family: Arial, sans-serif; background:#111; color:#eee; display:flex; min-height:100vh; align-items:center; justify-content:center; }
+ .card { background:#1a1a1a; padding:24px; border-radius:12px; max-width:600px; width:90%; box-shadow:0 6px 20px rgba(0,0,0,.6); }
+ input,button { width:100%; padding:10px; margin-top:8px; border:none; border-radius:6px; font-size:16px; }
+ input { background:#222; color:#fff; }
+ button { background:#2979ff; color:#fff; cursor:pointer; }
+ .hidden { display:none; }
+ h2 { margin-top:0; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Rejtvény</h2>
+    <p>„A tudás szerint a legkisebb kötelék, a Don és Dom is folyton erről beszél.”</p>
+    <input id="answer" placeholder="Írd be a megfejtést..." />
+    <button onclick="check()">Ellenőrzés</button>
+    <p id="msg"></p>
+    <div id="video" class="hidden">
+      <div style="position:relative;padding-top:56.25%">
+        <!-- IDE jön a saját YouTube linked -->
+        <iframe src="https://www.youtube.com/embed?v=Pi92Yq5X0LY" 
+                style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+<script>
+function norm(s){
+  return s.trim().toLowerCase()
+           .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+function check(){
+  const inp = norm(document.getElementById('answer').value);
+  if (inp==="csalad") {
+    document.getElementById('msg').innerText="Helyes! 🎉";
+    document.getElementById('video').classList.remove('hidden');
+  } else {
+    document.getElementById('msg').innerText="Nem jó, próbáld újra!";
+  }
+}
+</script>
+</body>
+</html>
